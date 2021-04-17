@@ -28,7 +28,7 @@ async function splider() {
       content.push(src)
     }
   })
-  console.log(content)
+  console.log(content,typeof(content))
 }
 splider()
 
