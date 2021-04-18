@@ -1,7 +1,6 @@
-
 const Mongoose = require('../config/Mongoose')
 const Schema = Mongoose.Schema
-const TvSchema = new Schema({
- result: Array
+const tv = new Schema({
+  result:Array
 })
-module.exports = Mongoose.model('tv',TvSchema)
+module.exports = Mongoose.model('tv',tv)
