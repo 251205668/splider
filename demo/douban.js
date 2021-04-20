@@ -1,3 +1,4 @@
+/* eslint-disable */
 let puppteer = require('puppeteer')
 const axios = require('axios')
 const hotMovie = require('../models/hotMovie')
@@ -171,9 +172,7 @@ async function getHotMoviesByTags(tag, subjects, type) {
           tag,
           episodes_info: item.episodes_info,
         }
-        type === 'hot'
-          ? await hotTv.create(obj)
-          : await tvList.create(obj)
+        type === 'hot' ? await hotTv.create(obj) : await tvList.create(obj)
         if (!total) {
           tvresult.push(item.url)
         }
@@ -488,8 +487,10 @@ async function splider() {
   // 电视剧详情
 
   let tvs = await tvDetail.find()
-  let existUrls = tvs.map(item => `https://movie.douban.com/subject/${item.id}/`)
-  tvresult = tvresult.filter(item => !existUrls.includes(item))
+  let existUrls = tvs.map(
+    (item) => `https://movie.douban.com/subject/${item.id}/`
+  )
+  tvresult = tvresult.filter((item) => !existUrls.includes(item))
   await getHotMovieDetail(tvresult, 10)
 }
 

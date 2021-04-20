@@ -10,12 +10,12 @@ async function splider() {
   const html = res.data
   const $ = cheerio.load(html)
   // 执行html的脚本 并提取出内容
-  const dom = new JSDOM(html, { runScripts: "dangerously" })
+  const dom = new JSDOM(html, { runScripts: 'dangerously' })
   const articleInfo = dom.window.articleInfo
   const articleContentHtml = articleInfo.parts[0].content
   
   // 插入html
-  $('.article-content').html(articleContentHtml);
+  $('.article-content').html(articleContentHtml)
   const articleContent = $('.article-content')
   const doms = articleContent.find('p,div,p>img,div>img')
   const content = []
@@ -28,6 +28,7 @@ async function splider() {
       content.push(src)
     }
   })
+  // eslint-disable-next-line no-console
   console.log(content,typeof(content))
 }
 splider()

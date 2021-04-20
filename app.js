@@ -18,15 +18,15 @@ app
 
 //  文件上传相关配置
   .use(koaBody({
-  multipart: true,
-  formidable: {
-    keepExtension: true,
-    maxFiledSize: 5 *1024 * 1024 // 最大的体积
-  },
-  onError: err=>{
-    console.log('koabody tcl:err',err)
-  }
-}))
+    multipart: true,
+    formidable: {
+      keepExtension: true,
+      maxFiledSize: 5 *1024 * 1024 // 最大的体积
+    },
+    onError: err=>{
+      console.log('koabody tcl:err',err)
+    }
+  }))
 
 // 启动服务
 const InitManager = require('./api/router')
